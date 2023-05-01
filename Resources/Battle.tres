@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://7utbvndpvwl0"]
+
+[ext_resource type="Script" path="res://battleResource.gd" id="1_imuym"]
+
+[resource]
+script = ExtResource("1_imuym")

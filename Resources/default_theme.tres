@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dro8dlma6qowl"]
+
+[ext_resource type="StyleBox" uid="uid://u2h6cb1yw8ra" path="res://Resources/button9Frame.tres" id="1_71hko"]
+[ext_resource type="FontFile" uid="uid://d1lyph4acngqd" path="res://PixelRPG.ttf" id="1_k0nee"]
+[ext_resource type="StyleBox" uid="uid://b11mjogq7h5ir" path="res://Resources/button9FrameHover.tres" id="2_dqrsb"]
+[ext_resource type="StyleBox" uid="uid://c56hi0lx1musg" path="res://Resources/button9FramePressed.tres" id="3_uhc5n"]
+[ext_resource type="StyleBox" uid="uid://cxljn55nj4uv2" path="res://Resources/panel9Frame.tres" id="4_n4w4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_of6vh"]
+
+[sub_resource type="FontVariation" id="FontVariation_k8cix"]
+base_font = ExtResource("1_k0nee")
+opentype_features = {
+1667329140: 0
+}
+spacing_bottom = -2
+
+[resource]
+default_font = SubResource("FontVariation_k8cix")
+default_font_size = 6
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/styles/disabled = ExtResource("1_71hko")
+Button/styles/focus = SubResource("StyleBoxEmpty_of6vh")
+Button/styles/hover = ExtResource("2_dqrsb")
+Button/styles/normal = ExtResource("1_71hko")
+Button/styles/pressed = ExtResource("3_uhc5n")
+LineEdit/styles/focus = ExtResource("4_n4w4j")
+LineEdit/styles/normal = ExtResource("4_n4w4j")
+LineEdit/styles/read_only = ExtResource("4_n4w4j")
+OptionButton/styles/disabled = ExtResource("4_n4w4j")
+OptionButton/styles/focus = ExtResource("4_n4w4j")
+OptionButton/styles/hover = ExtResource("4_n4w4j")
+OptionButton/styles/normal = ExtResource("4_n4w4j")
+OptionButton/styles/pressed = ExtResource("4_n4w4j")
+Panel/styles/panel = ExtResource("4_n4w4j")
+TextEdit/styles/focus = ExtResource("4_n4w4j")
+TextEdit/styles/normal = ExtResource("4_n4w4j")
+TextEdit/styles/read_only = ExtResource("4_n4w4j")

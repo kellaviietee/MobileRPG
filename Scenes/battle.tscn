@@ -1,0 +1,291 @@
+[gd_scene load_steps=21 format=3 uid="uid://musaoa07rulw"]
+
+[ext_resource type="Texture2D" uid="uid://8idwn1rsgkbu" path="res://Images/Mobile RPG Mockup.png" id="1_18f3k"]
+[ext_resource type="Texture2D" uid="uid://b6wc1ivhd1gmk" path="res://Images/Dungeon.png" id="1_ju0dw"]
+[ext_resource type="Script" path="res://Scenes/battle.gd" id="1_wn05s"]
+[ext_resource type="Script" path="res://Scenes/PlayerStats.gd" id="2_hpidh"]
+[ext_resource type="PackedScene" uid="uid://dfrhkv2u1kvcr" path="res://Scenes/Enemies/Spearman.tscn" id="2_j0edt"]
+[ext_resource type="PackedScene" uid="uid://b7tkqst4vdeld" path="res://Scenes/Enemies/Swordman.tscn" id="4_v1v2w"]
+[ext_resource type="Script" path="res://Scenes/StatsPanel.gd" id="6_j4c0r"]
+[ext_resource type="PackedScene" uid="uid://ms6ukwf1160a" path="res://Scenes/sword_action_button.tscn" id="7_xm1kr"]
+[ext_resource type="PackedScene" uid="uid://bbuvhl4yjvxgq" path="res://Scenes/heal_action_button.tscn" id="8_clb1i"]
+[ext_resource type="Script" path="res://Scenes/Textbox.gd" id="8_xcyaa"]
+[ext_resource type="PackedScene" uid="uid://dye40lat5xn4h" path="res://Scenes/to_inventory.tscn" id="10_d02vy"]
+[ext_resource type="PackedScene" uid="uid://bw2r0f5nor6q3" path="res://Scenes/to_character_sheet.tscn" id="11_gtr58"]
+[ext_resource type="PackedScene" uid="uid://cypl6brukns03" path="res://Scenes/Inventory/inventory_container.tscn" id="13_7wvih"]
+[ext_resource type="PackedScene" uid="uid://c4jrtv2rs1khv" path="res://Scenes/character_sheet.tscn" id="14_diyko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_32nc2"]
+
+[sub_resource type="Animation" id="Animation_plph1"]
+resource_name = "FadeToNewRoom"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m4eol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-93, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterSheet:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(93, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ti6j4"]
+resource_name = "ShowCharacterSheet"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSheet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(93, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_keoy2"]
+resource_name = "ShowInventory"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-93, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2ppj"]
+_data = {
+"FadeToNewRoom": SubResource("Animation_plph1"),
+"RESET": SubResource("Animation_m4eol"),
+"ShowCharacterSheet": SubResource("Animation_ti6j4"),
+"ShowInventory": SubResource("Animation_keoy2")
+}
+
+[node name="Battle" type="Node"]
+script = ExtResource("1_wn05s")
+enemies = Array[PackedScene]([ExtResource("2_j0edt"), ExtResource("4_v1v2w")])
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource("2_hpidh")
+
+[node name="Dungeon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(45, 80)
+texture = ExtResource("1_ju0dw")
+metadata/_edit_lock_ = true
+
+[node name="MobileRpgMockup" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.498039)
+texture_filter = 1
+position = Vector2(45, 80)
+texture = ExtResource("1_18f3k")
+metadata/_edit_lock_ = true
+
+[node name="EnemyPosition" type="Marker2D" parent="."]
+position = Vector2(46, 32)
+metadata/_edit_group_ = true
+
+[node name="SwordMan" parent="EnemyPosition" instance=ExtResource("4_v1v2w")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 47.0
+mouse_filter = 2
+
+[node name="NextRoomButton" type="Button" parent="UI/CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(70, 13)
+layout_mode = 2
+mouse_filter = 1
+text = "ENTER NEXT ROOM"
+
+[node name="StatsPanel" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 50.0
+offset_right = 87.0
+offset_bottom = 73.0
+script = ExtResource("6_j4c0r")
+
+[node name="StatsContainer" type="HBoxContainer" parent="UI/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "HP
+25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "AP
+3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MP" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "MP
+10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BattleActionButtons" type="GridContainer" parent="UI"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 76.0
+offset_right = 81.0
+offset_bottom = 107.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="SwordActionButton" parent="UI/BattleActionButtons" instance=ExtResource("7_xm1kr")]
+layout_mode = 2
+
+[node name="HealActionButton" parent="UI/BattleActionButtons" instance=ExtResource("8_clb1i")]
+layout_mode = 2
+
+[node name="InventoryButtons" type="GridContainer" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 107.0
+offset_right = 81.0
+offset_bottom = 121.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="ToInventory" parent="UI/InventoryButtons" instance=ExtResource("10_d02vy")]
+layout_mode = 2
+
+[node name="ToCharacterSheet" parent="UI/InventoryButtons" instance=ExtResource("11_gtr58")]
+layout_mode = 2
+
+[node name="TextboxPanel" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 132.0
+offset_right = 92.0
+offset_bottom = 161.0
+
+[node name="Textbox" type="RichTextLabel" parent="UI/TextboxPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_32nc2")
+scroll_active = false
+script = ExtResource("8_xcyaa")
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n2ppj")
+}
+
+[node name="InventoryContainer" parent="." instance=ExtResource("13_7wvih")]
+offset_left = -93.0
+offset_right = -93.0
+
+[node name="CharacterSheet" parent="." instance=ExtResource("14_diyko")]
+offset_left = 93.0
+offset_right = 93.0
+
+[connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_player_stats_ap_changed"]
+[connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_player_stats_hp_changed"]
+[connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_player_stats_mp_changed"]
+[connection signal="pressed" from="UI/CenterContainer/NextRoomButton" to="." method="_on_next_room_button_pressed"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ms6ukwf1160a"]
+
+[ext_resource type="PackedScene" uid="uid://dy8rwfiemgrn6" path="res://Scenes/action_button.tscn" id="1_gavjn"]
+[ext_resource type="Script" path="res://Scenes/sword_action_button.gd" id="2_20luy"]
+[ext_resource type="PackedScene" uid="uid://cwjij2jsi5dug" path="res://Scenes/slash.tscn" id="3_eqrnr"]
+
+[node name="SwordActionButton" instance=ExtResource("1_gavjn")]
+text = "SWORD"
+script = ExtResource("2_20luy")
+slash = ExtResource("3_eqrnr")
+
+[node name="HoverInfo" parent="." index="0"]
+description = "Sword
+Deals 4 damage"

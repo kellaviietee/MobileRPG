@@ -1,0 +1,148 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4jrtv2rs1khv"]
+
+[ext_resource type="Texture2D" uid="uid://obx16dnoal8d" path="res://Resources/LeftButtonNormal.tres" id="1_lu7g2"]
+[ext_resource type="Texture2D" uid="uid://bn1q5k2mx6wft" path="res://Resources/LeftbuttonPressed.tres" id="2_memvb"]
+[ext_resource type="Texture2D" uid="uid://cxg5svmmrkyey" path="res://Resources/LeftButtonHovered.tres" id="3_qx736"]
+[ext_resource type="Script" path="res://Scenes/ToBattleButton.gd" id="4_mw122"]
+
+[node name="CharacterSheet" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LevelContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 16.0
+
+[node name="Level" type="Label" parent="LevelContainer"]
+layout_mode = 2
+offset_right = 18.0
+offset_bottom = 14.0
+size_flags_horizontal = 0
+text = "Level
+10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exp" type="Label" parent="LevelContainer"]
+layout_mode = 2
+offset_left = 22.0
+offset_right = 44.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+text = "EXP
+1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpToNextLevel" type="Label" parent="LevelContainer"]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 86.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+text = "Next Level
+1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 26.0
+offset_right = 88.0
+offset_bottom = 67.0
+metadata/_edit_group_ = true
+
+[node name="StrengthContainer" type="HBoxContainer" parent="StatsContainer"]
+layout_mode = 2
+offset_right = 86.0
+offset_bottom = 11.0
+size_flags_vertical = 3
+
+[node name="Strength" type="Label" parent="StatsContainer/StrengthContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 69.0
+offset_bottom = 9.0
+size_flags_horizontal = 3
+text = "Strength"
+
+[node name="StrengthValue" type="Label" parent="StatsContainer/StrengthContainer"]
+layout_mode = 2
+offset_left = 73.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 9.0
+text = "100"
+
+[node name="VitalityContainer" type="HBoxContainer" parent="StatsContainer"]
+layout_mode = 2
+offset_top = 15.0
+offset_right = 86.0
+offset_bottom = 26.0
+size_flags_vertical = 3
+
+[node name="Vitality" type="Label" parent="StatsContainer/VitalityContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 69.0
+offset_bottom = 9.0
+size_flags_horizontal = 3
+text = "Vitality"
+
+[node name="VitalityValue" type="Label" parent="StatsContainer/VitalityContainer"]
+layout_mode = 2
+offset_left = 73.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 9.0
+text = "100"
+
+[node name="EnergyContainer" type="HBoxContainer" parent="StatsContainer"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 86.0
+offset_bottom = 41.0
+size_flags_vertical = 3
+
+[node name="Energy" type="Label" parent="StatsContainer/EnergyContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 69.0
+offset_bottom = 9.0
+size_flags_horizontal = 3
+text = "Energy"
+
+[node name="EnergyValue" type="Label" parent="StatsContainer/EnergyContainer"]
+layout_mode = 2
+offset_left = 73.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 9.0
+text = "100"
+
+[node name="BattleButtonContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 90.0
+offset_bottom = 160.0
+
+[node name="ToBattleButton" type="TextureButton" parent="BattleButtonContainer"]
+layout_mode = 2
+offset_left = 37.0
+offset_top = 12.0
+offset_right = 53.0
+offset_bottom = 28.0
+texture_normal = ExtResource("1_lu7g2")
+texture_pressed = ExtResource("2_memvb")
+texture_hover = ExtResource("3_qx736")
+script = ExtResource("4_mw122")
+
+[connection signal="pressed" from="BattleButtonContainer/ToBattleButton" to="BattleButtonContainer/ToBattleButton" method="_on_pressed"]

@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx7ke2xy13vki"]
+
+[ext_resource type="Script" path="res://Scenes/Inventory/inventory_display.gd" id="1_2qudb"]
+[ext_resource type="PackedScene" uid="uid://471c8kwkmxbx" path="res://Scenes/Inventory/inventory_slot_display.tscn" id="1_iwijd"]
+
+[node name="InventoryDisplay" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+script = ExtResource("1_2qudb")
+
+[node name="InventorySlotDisplay" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 30.0
+offset_bottom = 54.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay2" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 30.0
+offset_right = 60.0
+offset_bottom = 54.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay3" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 60.0
+offset_right = 90.0
+offset_bottom = 54.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay4" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 54.0
+offset_right = 30.0
+offset_bottom = 107.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay5" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 30.0
+offset_top = 54.0
+offset_right = 60.0
+offset_bottom = 107.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay6" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 60.0
+offset_top = 54.0
+offset_right = 90.0
+offset_bottom = 107.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay7" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 107.0
+offset_right = 30.0
+offset_bottom = 160.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay8" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 30.0
+offset_top = 107.0
+offset_right = 60.0
+offset_bottom = 160.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlotDisplay9" parent="." instance=ExtResource("1_iwijd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 60.0
+offset_top = 107.0
+offset_right = 90.0
+offset_bottom = 160.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw2r0f5nor6q3"]
+
+[ext_resource type="Texture2D" uid="uid://bfiaowk111njr" path="res://Resources/RightButtonNormal.tres" id="1_uq5ct"]
+[ext_resource type="Texture2D" uid="uid://b1wghqyps0t8n" path="res://Resources/RightbuttonPressed.tres" id="2_26shg"]
+[ext_resource type="Texture2D" uid="uid://dkk5pprs11c8s" path="res://Resources/RightButtonHovered.tres" id="3_e3ote"]
+[ext_resource type="Script" path="res://Scenes/to_character_sheet.gd" id="4_dwuga"]
+[ext_resource type="PackedScene" uid="uid://cfxpopnnechq3" path="res://Scenes/hover_info.tscn" id="5_jvj5v"]
+
+[node name="ToCharacterSheet" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("1_uq5ct")
+texture_pressed = ExtResource("2_26shg")
+texture_hover = ExtResource("3_e3ote")
+stretch_mode = 3
+script = ExtResource("4_dwuga")
+
+[node name="HoverInfo" parent="." instance=ExtResource("5_jvj5v")]
+description = "Character Sheet"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

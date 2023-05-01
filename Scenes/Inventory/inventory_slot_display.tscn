@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://471c8kwkmxbx"]
+
+[ext_resource type="Script" path="res://Scenes/Inventory/inventory_slot_display.gd" id="1_fnvql"]
+[ext_resource type="Texture2D" uid="uid://b464mqoi3705d" path="res://Scenes/Inventory/EmptyInventorySlot.png" id="1_yq00k"]
+
+[node name="InventorySlotDisplay" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fnvql")
+
+[node name="ItemTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(18, 18)
+offset_left = 36.0
+offset_top = 71.0
+offset_right = 54.0
+offset_bottom = 89.0
+texture = ExtResource("1_yq00k")
+stretch_mode = 3

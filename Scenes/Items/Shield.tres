@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bdnr871nti3gv"]
+
+[ext_resource type="Script" path="res://Scenes/Items/Item.gd" id="1_q6m6y"]
+[ext_resource type="Texture2D" uid="uid://o5tmhdwv36nj" path="res://Images/monochrome-transparent_packed.png" id="2_iyvrs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irq7b"]
+atlas = ExtResource("2_iyvrs")
+region = Rect2(592, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_q6m6y")
+name = "SHIELD"
+texture = SubResource("AtlasTexture_irq7b")

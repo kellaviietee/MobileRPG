@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dye40lat5xn4h"]
+
+[ext_resource type="Texture2D" uid="uid://obx16dnoal8d" path="res://Resources/LeftButtonNormal.tres" id="1_kwyo2"]
+[ext_resource type="Texture2D" uid="uid://bn1q5k2mx6wft" path="res://Resources/LeftbuttonPressed.tres" id="2_ufs5r"]
+[ext_resource type="Script" path="res://Scenes/to_inventory.gd" id="3_8yfg1"]
+[ext_resource type="Texture2D" uid="uid://cxg5svmmrkyey" path="res://Resources/LeftButtonHovered.tres" id="3_87jdg"]
+[ext_resource type="PackedScene" uid="uid://cfxpopnnechq3" path="res://Scenes/hover_info.tscn" id="4_nn7w5"]
+
+[node name="ToInventory" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("1_kwyo2")
+texture_pressed = ExtResource("2_ufs5r")
+texture_hover = ExtResource("3_87jdg")
+stretch_mode = 3
+script = ExtResource("3_8yfg1")
+
+[node name="HoverInfo" parent="." instance=ExtResource("4_nn7w5")]
+layout_mode = 1
+description = "Inventory"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

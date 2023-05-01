@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7tkqst4vdeld"]
+
+[ext_resource type="PackedScene" uid="uid://c71emb5b0ydkt" path="res://Scenes/Enemies/enemy.tscn" id="1_ajvha"]
+
+[node name="Swordman" instance=ExtResource("1_ajvha")]
+hp = 35
+
+[node name="EnemySprite" parent="." index="0"]
+region_rect = Rect2(432, 0, 16, 16)
+
+[node name="HPLabel" parent="." index="1"]
+text = "35hp"
+
+[node name="HoverInfo" parent="." index="3"]
+offset_left = -14.0
+offset_right = 14.0
+description = "A swordsman
+Deals 3 - 5 damage"

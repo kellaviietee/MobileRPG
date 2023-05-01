@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Mobile Rpg"
+run/main_scene="res://Scenes/battle.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=90
+window/size/viewport_height=160
+window/size/window_width_override=360
+window/size/window_height_override=640
+window/handheld/orientation=1
+mouse_cursor/custom_image="res://Images/mouse2.png"
+window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="res://Resources/default_theme.tres"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+2d/snap/snap_2d_vertices_to_pixel=true
+textures/canvas_textures/default_texture_filter=0

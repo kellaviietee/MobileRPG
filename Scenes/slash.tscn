@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwjij2jsi5dug"]
+
+[ext_resource type="Texture2D" uid="uid://dtan5afugs2kg" path="res://Images/SlashEffect.png" id="2_rdf6t"]
+
+[sub_resource type="Animation" id="Animation_amlre"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashEffect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_smy8b"]
+resource_name = "Slash"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashEffect:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_253lc"]
+_data = {
+"RESET": SubResource("Animation_amlre"),
+"Slash": SubResource("Animation_smy8b")
+}
+
+[node name="Slash" type="Node2D"]
+
+[node name="SlashEffect" type="Sprite2D" parent="."]
+texture = ExtResource("2_rdf6t")
+hframes = 5
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Slash"
+libraries = {
+"": SubResource("AnimationLibrary_253lc")
+}

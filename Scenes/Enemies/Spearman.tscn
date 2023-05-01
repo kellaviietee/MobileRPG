@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfrhkv2u1kvcr"]
+
+[ext_resource type="PackedScene" uid="uid://c71emb5b0ydkt" path="res://Scenes/Enemies/enemy.tscn" id="1_47t7c"]
+
+[node name="Spearman" instance=ExtResource("1_47t7c")]
+min_damage = 2
+max_damage = 6
+
+[node name="EnemySprite" parent="." index="0"]
+region_rect = Rect2(416, 0, 16, 16)
+
+[node name="HoverInfo" parent="." index="3"]
+offset_left = -13.0
+offset_right = 16.0
+description = "A swordsman
+Deals 2 - 7 damage"

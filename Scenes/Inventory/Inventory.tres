@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=6 format=3 uid="uid://bvyg56kv7rrh8"]
+
+[ext_resource type="Script" path="res://Scenes/Inventory/Inventory.gd" id="1_j1rvl"]
+[ext_resource type="Resource" uid="uid://d1hke364aoo34" path="res://Scenes/Items/Axe.tres" id="1_wurkq"]
+[ext_resource type="Resource" uid="uid://oe2y63st1wow" path="res://Scenes/Items/Potion.tres" id="2_pvplo"]
+[ext_resource type="Resource" uid="uid://bdnr871nti3gv" path="res://Scenes/Items/Shield.tres" id="3_d4h6f"]
+[ext_resource type="Resource" uid="uid://bue57nqth38f7" path="res://Scenes/Items/Sword.tres" id="4_4kuh6"]
+
+[resource]
+script = ExtResource("1_j1rvl")
+items = Array[Resource]([ExtResource("1_wurkq"), null, ExtResource("2_pvplo"), ExtResource("2_pvplo"), null, ExtResource("3_d4h6f"), null, ExtResource("4_4kuh6"), null])
